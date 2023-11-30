@@ -12,7 +12,7 @@
   )
 
 (defn- convert-customer
-  "Convert customer from JSON to #:customer valid"
+  "Convert customer from json reader to #:customer valid"
   [customer]
   (let [name (:company_name customer)
         email (:email customer)]
@@ -62,7 +62,7 @@
            })
 
 (defn get-invoice
-  "Receive a valid name json in the directory and call ::invoice test"
+  "Receive a valid name json in the directory and return an invoice"
   [name_json]
 
   (let [read-invoice (json/read (clojure.java.io/reader name_json) :key-fn keyword)
